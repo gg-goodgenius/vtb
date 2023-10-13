@@ -49,6 +49,8 @@ def get_best_bank(db: Session, lon: float, lat: float, radius: float) -> list[Ba
     distances = list()
     if len(bank_instances) == 0:
         return []
+    if len(bank_instances) == 1:
+        return BankListWithRelevance(**bank_instances[0].__dict__, relevance=1.0)
     for bank_instance in bank_instances:
         distances.append(
             {
