@@ -1,4 +1,4 @@
-name: build & deploy
+name: Send to server
 on:
   workflow_dispatch:
 jobs:
