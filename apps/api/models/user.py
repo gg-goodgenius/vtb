@@ -13,5 +13,3 @@ class User(Base):
     role = Column(String)
     hashed_password = Column(String)
     is_active = Column(Boolean)
-
-    card_histories = relationship("CardHistory", back_populates="user")

@@ -31,6 +31,7 @@ def healthcheck():
 
 
 app.include_router(auth_router)
+app.include_router(bank_router)
 
 if __name__ == "__main__":
     log_config = uvicorn.config.LOGGING_CONFIG

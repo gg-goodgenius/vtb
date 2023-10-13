@@ -11,6 +11,7 @@ class Settings(BaseSettings):
     access_token_expire_minutes: int
     refresh_token_expire_minutes: int
     app_dir: str = str(Path.cwd())
+    ymaps_token: str
     model_config = SettingsConfigDict(env_file=".env")
 
 
