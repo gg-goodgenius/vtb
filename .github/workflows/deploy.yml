@@ -2,7 +2,8 @@ name: Send to server
 on:
   workflow_dispatch:
 jobs:
-  deploy:
+  send_to_server:
+    name: Send to Server
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -19,6 +20,10 @@ jobs:
 
       - name: Deploy with rsync
         run: rsync -avz -e "ssh -p ${{ secrets.SSH_PORT }}"  ./ "${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST}}:~/webapp/"
+  build_on_server:
+    name: Build on Server
+    runs-on: ubuntu-latest
+    steps:
       - name: Start docker-compose
         uses: appleboy/ssh-action@master
         with:
