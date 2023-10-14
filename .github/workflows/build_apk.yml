@@ -45,18 +45,15 @@ jobs:
       - name: Upload APK Debug - ${{ env.repository_name }}
         uses: actions/upload-artifact@v3
         with:
-          working-directory: ./${{ env.android_path }}
           name: ${{ env.date_today }} - ${{ env.playstore_name }} - ${{ env.repository_name }} - APK(s) debug generated
-          path: ${{ env.main_project_module }}/build/outputs/apk/debug/
+          path: ./${{ env.android_path }}/${{ env.main_project_module }}/build/outputs/apk/debug/
       - name: Upload APK Release - ${{ env.repository_name }}
         uses: actions/upload-artifact@v3
         with:
-          working-directory: ./${{ env.android_path }}
           name: ${{ env.date_today }} - ${{ env.playstore_name }} - ${{ env.repository_name }} - APK(s) release generated
-          path: ${{ env.main_project_module }}/build/outputs/apk/release/
+          path: ./${{ env.android_path }}/${{ env.main_project_module }}/build/outputs/apk/release/
       - name: Upload AAB (App Bundle) Release - ${{ env.repository_name }}
         uses: actions/upload-artifact@v3
         with:
-          working-directory: ./${{ env.android_path }}
           name: ${{ env.date_today }} - ${{ env.playstore_name }} - ${{ env.repository_name }} - App bundle(s) AAB release generated
-          path: ${{ env.main_project_module }}/build/outputs/bundle/release/
+          path: ./${{ env.android_path }}/${{ env.main_project_module }}/build/outputs/bundle/release/
