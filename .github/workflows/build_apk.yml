@@ -25,7 +25,8 @@ jobs:
       - name: Change wrapper permissions
         run: chmod +x ./${{ env.android_path }}/gradlew
       - name: Run gradle tests
-        run: ./${{ env.android_path }}/gradlew test
+        working-directory: ./${{ env.android_path }}
+        run: ./gradlew test
       - name: Build gradle project
         run: ./${{ env.android_path }}/gradlew build
       - name: Build apk debug project (APK) - ${{ env.main_project_module }} module
