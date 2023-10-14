@@ -1,6 +1,7 @@
 name: Android Build APK
 env:
-  main_project_module: apps/android
+  main_project_module: app
+  android_path: apps/android
   playstore_name: VTBOnMap
 on:
   workflow_dispatch:
@@ -22,17 +23,17 @@ jobs:
           java-version: '17'
           cache: 'gradle'
       - name: Change wrapper permissions
-        run: cd apps/android && chmod +x ./gradlew
+        run: chmod +x ./${{ env.android_path }}/gradlew
       - name: Run gradle tests
-        run: cd apps/android && ./gradlew test
+        run: ./${{ env.android_path }}/gradlew test
       - name: Build gradle project
-        run: cd apps/android && ./gradlew build
+        run: ./${{ env.android_path }}/gradlew build
       - name: Build apk debug project (APK) - ${{ env.main_project_module }} module
-        run: cd apps/android && ./gradlew assembleDebug
+        run: ./${{ env.android_path }}/gradlew assembleDebug
       - name: Build apk release project (APK) - ${{ env.main_project_module }} module
-        run: cd apps/android && ./gradlew assemble
+        run: ./${{ env.android_path }}/gradlew assemble
       - name: Build app bundle release (AAB) - ${{ env.main_project_module }} module
-        run: cd apps/android && ./gradlew ${{ env.main_project_module }}:bundleRelease
+        run: ./${{ env.android_path }}/gradlew ${{ env.main_project_module }}:bundleRelease
       - name: Upload APK Debug - ${{ env.repository_name }}
         uses: actions/upload-artifact@v3
         with:
