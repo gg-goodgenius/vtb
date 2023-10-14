@@ -12,7 +12,7 @@ jobs:
         with:
           submodules: recursive
       - name: Go to android dir
-        run: cd apps/android
+        run: cd apps/android && pwd
       - name: Set current date as env variable
         run: echo "date_today=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
       - name: Set repository name as env variable
