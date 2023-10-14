@@ -1,6 +1,13 @@
 from core.database import Base
-from sqlalchemy import Boolean, Column, Float, ForeignKey, Integer, String
+from sqlalchemy import Boolean, Column, Float, ForeignKey, Integer, String, Table
 from sqlalchemy.orm import relationship
+
+bank_services_link = Table(
+    "bank_services_link",
+    Base.metadata,
+    Column("bank_id", ForeignKey("bank.id"), primary_key=True),
+    Column("bankservice_id", ForeignKey("bankservice.id"), primary_key=True),
+)
 
 
 class Bank(Base):
@@ -20,6 +27,7 @@ class Bank(Base):
     for_juridical = Column(Boolean)
 
     schedule = relationship("Schedule", back_populates="bank")
+    services = relationship("BankService", secondary="bank_services_link", back_populates="banks")
 
 
 class Schedule(Base):
@@ -34,3 +42,13 @@ class Schedule(Base):
 
     bank = relationship("Bank", back_populates="schedule")
     bank_id = Column(Integer, ForeignKey("bank.id"))
+
+
+class BankService(Base):
+    __tablename__ = "bankservice"
+
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String)
+    time = Column(Integer)
+
+    banks = relationship("Bank", secondary="bank_services_link", back_populates="services")

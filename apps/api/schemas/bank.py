@@ -5,6 +5,16 @@ from constants.user import UserRole
 from pydantic import BaseModel, ConfigDict
 
 
+class BankServiceBase(BaseModel):
+    name: str
+    time: int
+
+
+class BankServiceRead(BankServiceBase):
+    id: int
+    model_config = ConfigDict(from_attributes=True)
+
+
 class SheduleBase(BaseModel):
     day: int
     start_time: int
@@ -28,6 +38,7 @@ class BankBase(BaseModel):
     for_person: bool
     for_juridical: bool
     schedule: list[SheduleRead]
+    services: list[BankServiceRead]
 
 
 class BankRead(BankBase):

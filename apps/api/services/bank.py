@@ -3,9 +3,9 @@ from math import exp, sqrt
 from constants import PWD_CONTEXT
 from core.service import generate_services
 from fastapi import HTTPException, Query, status
-from models import Bank
+from models import Bank, BankService
 from pydantic import EmailStr
-from schemas import BankBase, BankList, BankListWithRelevance, BankRead
+from schemas import BankBase, BankList, BankListWithRelevance, BankRead, BankServiceBase, BankServiceRead
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
@@ -24,6 +24,23 @@ from sqlalchemy.orm import Session
     read_schema=BankRead,
     read_list_schema=BankList,
     update_schema=BankBase,
+)
+
+(
+    _,
+    get_one_service,
+    get_all_service,
+    _,
+    _,
+    _,
+    _,
+    count_service,
+) = generate_services(
+    db_model=BankService,
+    create_schema=BankServiceBase,
+    read_schema=BankServiceRead,
+    read_list_schema=BankServiceRead,
+    update_schema=BankServiceBase,
 )
 
 

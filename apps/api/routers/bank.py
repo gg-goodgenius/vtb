@@ -2,8 +2,16 @@ from core.database import get_db
 from core.router import generate_router
 from dependencies import get_current_active_user, get_current_user
 from fastapi import Depends, Query
-from schemas import BankList, BankListWithRelevance, BankRead
-from services import count_bank, get_all_bank, get_best_bank, get_one_bank
+from schemas import BankList, BankListWithRelevance, BankRead, BankServiceBase, BankServiceRead
+from services import (
+    count_bank,
+    count_service,
+    get_all_bank,
+    get_all_service,
+    get_best_bank,
+    get_one_bank,
+    get_one_service,
+)
 
 router = generate_router(
     get_db=get_db,
@@ -14,6 +22,17 @@ router = generate_router(
     func_count=count_bank,
     prefix="/bank",
     tags=["Отделения банков"],
+)
+
+router_service = generate_router(
+    get_db=get_db,
+    read_schema=BankServiceRead,
+    read_list_schema=BankServiceRead,
+    func_get_one=get_one_service,
+    func_get_all=get_all_service,
+    func_count=count_service,
+    prefix="/service",
+    tags=["Услуги отделений"],
 )
 
 
