@@ -32,16 +32,16 @@ jobs:
         run: ./gradlew test
       - name: Build gradle project
         working-directory: ./${{ env.android_path }}
-        run: ./${{ env.android_path }}/gradlew build
+        run: ./gradlew build
       - name: Build apk debug project (APK) - ${{ env.main_project_module }} module
         working-directory: ./${{ env.android_path }}
-        run: ./${{ env.android_path }}/gradlew assembleDebug
+        run: ./gradlew assembleDebug
       - name: Build apk release project (APK) - ${{ env.main_project_module }} module
         working-directory: ./${{ env.android_path }}
-        run: ./${{ env.android_path }}/gradlew assemble
+        run: ./gradlew assemble
       - name: Build app bundle release (AAB) - ${{ env.main_project_module }} module
         working-directory: ./${{ env.android_path }}
-        run: ./${{ env.android_path }}/gradlew ${{ env.main_project_module }}:bundleRelease
+        run: ./gradlew ${{ env.main_project_module }}:bundleRelease
       - name: Upload APK Debug - ${{ env.repository_name }}
         uses: actions/upload-artifact@v3
         with:
