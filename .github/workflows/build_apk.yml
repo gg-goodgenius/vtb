@@ -13,6 +13,7 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
+          gradle-version: 7.4.2
       - name: Run Tests
         run: cd apps/android/ && bash ./gradlew test --stacktrace
   apk:
