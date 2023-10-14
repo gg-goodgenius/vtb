@@ -24,6 +24,9 @@ jobs:
           cache: 'gradle'
       - name: Change wrapper permissions
         run: chmod +x ./${{ env.android_path }}/gradlew
+      - name: Create local
+        working-directory: ./${{ env.android_path }}
+        run: echo MAPKIT_API_KEY=${{ secrets.YM_TOKEN }} >  local.properties
       - name: Run gradle tests
         working-directory: ./${{ env.android_path }}
         run: ./gradlew test
