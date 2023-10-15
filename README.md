@@ -1,7 +1,7 @@
 [![Android Build APK](https://github.com/gg-goodgenius/vtb/actions/workflows/build_apk.yml/badge.svg?branch=main)](https://github.com/gg-goodgenius/vtb/actions/workflows/build_apk.yml) [![Send to server](https://github.com/gg-goodgenius/vtb/actions/workflows/deploy.yml/badge.svg)](https://github.com/gg-goodgenius/vtb/actions/workflows/deploy.yml)
 # ВТБ на карте
 
-Сервис позволяющий найти рядом с вами оптимально отделение банка ВТБ, которое окажет вам необходимые услуги в короткий срок
+Сервис позволяющий найти рядом с вами оптимальное отделение банка ВТБ, которое окажет вам необходимые услуги в короткий срок
 
 # Установка серверной части
 Для установки серверной части вам необходимо использовать Docker версии не ниже 20. Инструкцию по установке можете найти [здесь](https://docs.docker.com/engine/install/)
