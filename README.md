@@ -1,4 +1,4 @@
-[![Android Build APK](https://github.com/gg-goodgenius/vtb/actions/workflows/build_apk.yml/badge.svg)](https://github.com/gg-goodgenius/vtb/actions/workflows/build_apk.yml) [![Send to server](https://github.com/gg-goodgenius/vtb/actions/workflows/deploy.yml/badge.svg)](https://github.com/gg-goodgenius/vtb/actions/workflows/deploy.yml)
+[![Android Build APK](https://github.com/gg-goodgenius/vtb/actions/workflows/build_apk.yml/badge.svg?branch=main)](https://github.com/gg-goodgenius/vtb/actions/workflows/build_apk.yml) [![Send to server](https://github.com/gg-goodgenius/vtb/actions/workflows/deploy.yml/badge.svg)](https://github.com/gg-goodgenius/vtb/actions/workflows/deploy.yml)
 # ВТБ на карте
 
 Сервис позволяющий найти рядом с вами оптимально отделение банка ВТБ, которое окажет вам необходимые услуги в короткий срок
