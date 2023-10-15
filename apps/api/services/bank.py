@@ -48,7 +48,15 @@ def _get_distance(x1: float, x2: float, y1: float, y2: float) -> float:
     return sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2) * 111
 
 
-def get_best_bank(db: Session, lon: float, lat: float, radius: float) -> list[BankListWithRelevance]:
+def get_best_bank(
+    db: Session,
+    lon: float,
+    lat: float,
+    radius: float,
+    service_id: int,
+    need_ramp: bool = False,
+    need_premium: bool = False,
+) -> list[BankListWithRelevance]:
     radius_degree: float = radius / 111
     try:
         bank_instances = (

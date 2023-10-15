@@ -38,6 +38,14 @@ router_service = generate_router(
 
 @router.get("/best/", response_model=list[BankListWithRelevance])
 def get_best(
-    lon: float, lat: float, radius: float = Query(description="Радиус поиска в километрах"), db=Depends(get_db)
+    lon: float,
+    lat: float,
+    service_id: int = 1,
+    need_ramp: bool = False,
+    need_premium: bool = False,
+    radius: float = Query(description="Радиус поиска в километрах"),
+    db=Depends(get_db),
 ):
-    return get_best_bank(db=db, lon=lon, lat=lat, radius=radius)
+    return get_best_bank(
+        db=db, lon=lon, lat=lat, radius=radius, service_id=service_id, need_ramp=need_ramp, need_premium=need_premium
+    )
